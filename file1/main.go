@@ -4,14 +4,27 @@ import (
 	"bufio"
 	"fmt"
 	"io"
+	"io/ioutil"
 	"os"
 )
 
-// 文件操作
+// 文件读操作
 
 func main() {
 	// readFromFile()
-	readFileByBufio()
+	// readFileByBufio()
+	readFileByIoutil()
+}
+
+func readFileByIoutil() {
+	res, err := ioutil.ReadFile("a.txt")
+	if err != nil {
+		fmt.Printf("read file failed, err: %v\n", err)
+		return
+	}
+	fmt.Println("读取结束")
+	// 字节数组转成字符串
+	fmt.Println(string(res))
 }
 
 func readFileByBufio() {
